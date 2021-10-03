@@ -1,0 +1,18 @@
+trigger:
+  - master
+
+resources:
+  repositories:
+    - repository: rosci
+      type: github
+      name: ascentai/azure_ros_ci
+      endpoint: ascentai
+
+jobs:
+  - template: ros-template.yml@rosci
+    parameters:
+      rosdistro: "melodic"
+      pkgToTest: ""
+      name: "install"
+      installMode: true
+      runClangTidy: true
